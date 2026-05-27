@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "KmerFret",
+    "slug": "kmerfrеt",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1B5E20"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1B5E20"
+      },
+      "package": "cm.kmerfrеt.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "SEND_SMS",
+        "VIBRATE"
+      ]
+    },
+    "plugins": [
+      "expo-location",
+      "expo-camera",
+      "expo-sensors",
+      "expo-sqlite",
+      "expo-barcode-scanner",
+      "expo-secure-store"
+    ]
+  }
+}

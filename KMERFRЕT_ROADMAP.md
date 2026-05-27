@@ -1811,8 +1811,8 @@ eas build --platform android --profile production
 | 3 | Entités JPA (8 models) | ✅ Terminé |
 | 4 | Sécurité JWT + Auth endpoints | ✅ Terminé |
 | 5 | APIs REST Métier (Missions, Hazards, Telemetry) | ✅ Terminé |
-| 6 | React Native Init + Navigation + Dépendances | ⬜ À faire |
-| 7 | Thème MD3 + Composants communs | ⬜ À faire |
+| 6 | React Native Init + Navigation + Dépendances | ✅ Terminé |
+| 7 | Thème MD3 + Composants communs | ✅ Terminé |
 | 8 | SQLite Offline + helpers CRUD | ⬜ À faire |
 | 9 | Écrans Auth (Login + Register) | ⬜ À faire |
 | 10 | Service Télémétrie (Accéléromètre + GPS) | ⬜ À faire |
