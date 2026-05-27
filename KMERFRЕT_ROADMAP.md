@@ -1809,7 +1809,7 @@ eas build --platform android --profile production
 | 1 | Docker + PostgreSQL + PostGIS + Schéma SQL | ✅ Terminé |
 | 2 | Spring Boot Init + Structure packages | ✅ Terminé |
 | 3 | Entités JPA (8 models) | ✅ Terminé |
-| 4 | Sécurité JWT + Auth endpoints | ⬜ À faire |
+| 4 | Sécurité JWT + Auth endpoints | ✅ Terminé |
 | 5 | APIs REST Métier (Missions, Hazards, Telemetry) | ⬜ À faire |
 | 6 | React Native Init + Navigation + Dépendances | ⬜ À faire |
 | 7 | Thème MD3 + Composants communs | ⬜ À faire |
