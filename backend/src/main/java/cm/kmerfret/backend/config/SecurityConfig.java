@@ -5,6 +5,7 @@ import cm.kmerfret.backend.security.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -41,10 +42,11 @@ public class SecurityConfig {
             .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                 // Routes publiques
-                .requestMatchers("POST", "/api/auth/login").permitAll()
-                .requestMatchers("POST", "/api/auth/register").permitAll()
-                .requestMatchers("POST", "/api/auth/refresh").permitAll()
-                .requestMatchers("GET",  "/api/hazards/map").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/auth/refresh").permitAll()
+                .requestMatchers(HttpMethod.GET,  "/api/hazards/map").permitAll()
+                .requestMatchers("/actuator/**").permitAll()
                 // Tout le reste requiert un JWT valide
                 .anyRequest().authenticated()
             )

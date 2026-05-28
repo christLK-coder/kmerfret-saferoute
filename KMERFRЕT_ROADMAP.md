@@ -1814,9 +1814,9 @@ eas build --platform android --profile production
 | 6 | React Native Init + Navigation + Dépendances | ✅ Terminé |
 | 7 | Thème MD3 + Composants communs | ✅ Terminé |
 | 8 | SQLite Offline + helpers CRUD | ✅ Terminé |
-| 9 | Écrans Auth (Login + Register) | ⬜ À faire |
-| 10 | Service Télémétrie (Accéléromètre + GPS) | ⬜ À faire |
-| 11 | Service Sync Offline→Online | ⬜ À faire |
+| 9 | Écrans Auth (Login + Register) | ✅ Terminé |
+| 10 | Service Télémétrie (Accéléromètre + GPS) | ✅ Terminé |
+| 11 | Service Sync Offline→Online | ✅ Terminé |
 | 12 | Écrans Métier (Importer + Chauffeur) | ⬜ À faire |
 | 13 | OCR Documents Port | ⬜ À faire |
 | 14 | Bouton Détresse SMS Hors-ligne | ⬜ À faire |

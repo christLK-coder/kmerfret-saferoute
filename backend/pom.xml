@@ -111,6 +111,8 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<mainClass>cm.kmerfret.backend.KmerFretBackendApplication</mainClass>
+					<jvmArguments>-Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8</jvmArguments>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
