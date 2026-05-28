@@ -1813,7 +1813,7 @@ eas build --platform android --profile production
 | 5 | APIs REST Métier (Missions, Hazards, Telemetry) | ✅ Terminé |
 | 6 | React Native Init + Navigation + Dépendances | ✅ Terminé |
 | 7 | Thème MD3 + Composants communs | ✅ Terminé |
-| 8 | SQLite Offline + helpers CRUD | ⬜ À faire |
+| 8 | SQLite Offline + helpers CRUD | ✅ Terminé |
 | 9 | Écrans Auth (Login + Register) | ⬜ À faire |
 | 10 | Service Télémétrie (Accéléromètre + GPS) | ⬜ À faire |
 | 11 | Service Sync Offline→Online | ⬜ À faire |
