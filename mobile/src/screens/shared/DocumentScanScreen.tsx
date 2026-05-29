@@ -14,7 +14,8 @@ import { Text, ActivityIndicator } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import type { NativeStackNavigationProp, RouteProp } from '@react-navigation/native-stack';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RouteProp } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { pickDocumentImage, uploadAndSaveDocument } from '../../services/OcrService';
 import type { DocType, DocumentDto } from '../../api/documents.api';
@@ -167,7 +168,7 @@ export default function DocumentScanScreen() {
           <MaterialCommunityIcons name="arrow-left" size={24} color="#FFFFFF" />
         </TouchableOpacity>
         <View style={styles.headerContent}>
-          <MaterialCommunityIcons name="file-scan" size={28} color="#FFFFFF" />
+          <MaterialCommunityIcons name="file-search" size={28} color="#FFFFFF" />
           <Text style={styles.headerTitle}>Numérisation document</Text>
           <Text style={styles.headerSub}>Port de Douala / Kribi</Text>
         </View>

@@ -15,7 +15,8 @@ import { Text, ActivityIndicator } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import type { NativeStackNavigationProp, RouteProp } from '@react-navigation/native-stack';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RouteProp } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import QRCode from 'react-native-qrcode-svg';
 import { getMissionDetailApi } from '../../api/missions.api';
@@ -344,7 +345,7 @@ export default function MissionDetailScreen() {
             style={styles.headerActionBtn}
             onPress={() => navigation.navigate('DocumentScan', { missionId })}
           >
-            <MaterialCommunityIcons name="file-scan" size={20} color="#FFFFFF" />
+            <MaterialCommunityIcons name="file-search" size={20} color="#FFFFFF" />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.headerActionBtn}
