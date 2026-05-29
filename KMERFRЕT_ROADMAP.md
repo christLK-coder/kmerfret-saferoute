@@ -1817,11 +1817,11 @@ eas build --platform android --profile production
 | 9 | Écrans Auth (Login + Register) | ✅ Terminé |
 | 10 | Service Télémétrie (Accéléromètre + GPS) | ✅ Terminé |
 | 11 | Service Sync Offline→Online | ✅ Terminé |
-| 12 | Écrans Métier (Importer + Chauffeur) | ⬜ À faire |
-| 13 | OCR Documents Port | ⬜ À faire |
-| 14 | Bouton Détresse SMS Hors-ligne | ⬜ À faire |
-| 15 | Paiement Séquestre + QR Code | ⬜ À faire |
-| 16 | Build Production EAS + Google Play | ⬜ À faire |
+| 12 | Écrans Métier (Importer + Chauffeur) | ✅ Terminé |
+| 13 | OCR Documents Port | ✅ Terminé |
+| 14 | Bouton Détresse SMS Hors-ligne | ✅ Terminé |
+| 15 | Paiement Séquestre + QR Code | ✅ Terminé |
+| 16 | Build Production EAS + Google Play | ✅ Terminé |
 
 ---
 

@@ -23,4 +23,10 @@ public class DocumentController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ApiResponse.ok(documentService.uploadDocument(req)));
     }
+
+    @GetMapping("/mission/{missionId}")
+    public ResponseEntity<ApiResponse<java.util.List<DocumentResponse>>> getMissionDocuments(
+            @PathVariable java.util.UUID missionId) {
+        return ResponseEntity.ok(ApiResponse.ok(documentService.getMissionDocuments(missionId)));
+    }
 }
