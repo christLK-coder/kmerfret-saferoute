@@ -1,5 +1,9 @@
 // Constantes globales KmerFret
-export const API_BASE_URL = 'http://192.168.1.179:8080';
+// API_BASE_URL : lit EXPO_PUBLIC_API_URL depuis .env.local, sinon fallback IP courante
+export const API_BASE_URL =
+  (process.env.EXPO_PUBLIC_API_URL ?? '').trim() !== ''
+    ? (process.env.EXPO_PUBLIC_API_URL as string).trim()
+    : 'http://172.20.10.2:8080';
 
 export const SHOCK_THRESHOLDS = {
   LOW: 1.5,

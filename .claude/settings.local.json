@@ -7,7 +7,12 @@
       "PowerShell(curl.exe -s \"https://start.spring.io\" -H \"Accept: application/vnd.initializr.v2.2+json\" | python -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(v['id']\\) for v in d['bootVersion']['values']]\" 2>&1)",
       "PowerShell(curl.exe -s -o \"C:\\\\Users\\\\USER\\\\kmerfrеt\\\\backend\\\\starter.zip\" -w \"%{http_code}\" \"https://start.spring.io/starter.zip?type=maven-project&language=java&bootVersion=3.3.5&groupId=cm.kmerfret&artifactId=kmerfret-backend&name=KmerFretBackend&packageName=cm.kmerfret.backend&packaging=jar&javaVersion=17&dependencies=web,data-jpa,postgresql,security,validation,lombok,actuator\")",
       "PowerShell(curl.exe -s -o \"C:\\\\Users\\\\USER\\\\kmerfrеt\\\\backend\\\\starter.zip\" -w \"%{http_code}\" \"https://start.spring.io/starter.zip?type=maven-project&language=java&bootVersion=3.4.5&groupId=cm.kmerfret&artifactId=kmerfret-backend&name=KmerFretBackend&packageName=cm.kmerfret.backend&packaging=jar&javaVersion=17&dependencies=web,data-jpa,postgresql,security,validation,lombok,actuator\")",
-      "PowerShell(curl.exe -s \"https://start.spring.io/starter.zip?type=maven-project&language=java&bootVersion=3.4.5&groupId=cm.kmerfret&artifactId=kmerfret-backend&name=KmerFretBackend&packageName=cm.kmerfret.backend&packaging=jar&javaVersion=17&dependencies=web\" 2>&1 | Select-Object -First 5)"
+      "PowerShell(curl.exe -s \"https://start.spring.io/starter.zip?type=maven-project&language=java&bootVersion=3.4.5&groupId=cm.kmerfret&artifactId=kmerfret-backend&name=KmerFretBackend&packageName=cm.kmerfret.backend&packaging=jar&javaVersion=17&dependencies=web\" 2>&1 | Select-Object -First 5)",
+      "Bash(Get-ChildItem -Recurse -Directory)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Sort-Object)",
+      "mcp__ide__getDiagnostics",
+      "PowerShell(gh auth *)"
     ]
   }
 }

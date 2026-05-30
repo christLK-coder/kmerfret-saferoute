@@ -1,0 +1,127 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-05-29T23:40:51.576+02:00  INFO 2536 --- [kmerfret-backend] [           main] c.k.backend.KmerFretBackendApplication   : Starting KmerFretBackendApplication using Java 17.0.18 with PID 2536 (C:\Users\USER\kmerfr?t\backend\target\classes started by USER in C:\Users\USER\kmerfr?t\backend)
+2026-05-29T23:40:51.587+02:00 DEBUG 2536 --- [kmerfret-backend] [           main] c.k.backend.KmerFretBackendApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-05-29T23:40:51.591+02:00  INFO 2536 --- [kmerfret-backend] [           main] c.k.backend.KmerFretBackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-05-29T23:40:54.101+02:00  INFO 2536 --- [kmerfret-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-29T23:40:54.283+02:00  INFO 2536 --- [kmerfret-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 163 ms. Found 6 JPA repository interfaces.
+2026-05-29T23:40:55.701+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-05-29T23:40:55.732+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-29T23:40:55.733+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2026-05-29T23:40:55.875+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-29T23:40:55.877+02:00  INFO 2536 --- [kmerfret-backend] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4163 ms
+2026-05-29T23:40:56.344+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-29T23:40:56.521+02:00  INFO 2536 --- [kmerfret-backend] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-05-29T23:40:56.543+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.h.spatial.integration.SpatialService   : HHH80000001: hibernate-spatial integration enabled : true
+2026-05-29T23:40:56.597+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-29T23:40:56.817+02:00  INFO 2536 --- [kmerfret-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-29T23:40:57.032+02:00  INFO 2536 --- [kmerfret-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@58fbcb71
+2026-05-29T23:40:57.036+02:00  INFO 2536 --- [kmerfret-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-29T23:40:57.088+02:00  WARN 2536 --- [kmerfret-backend] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-29T23:40:57.132+02:00  INFO 2536 --- [kmerfret-backend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-29T23:40:57.158+02:00  INFO 2536 --- [kmerfret-backend] [           main] org.hibernate.spatial                    : HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-05-29T23:40:57.748+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-29T23:40:57.801+02:00  INFO 2536 --- [kmerfret-backend] [           main] org.hibernate.spatial                    : HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-05-29T23:40:58.891+02:00  INFO 2536 --- [kmerfret-backend] [           main] org.hibernate.spatial                    : HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-05-29T23:41:00.528+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-29T23:41:00.649+02:00  INFO 2536 --- [kmerfret-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-29T23:41:01.352+02:00 DEBUG 2536 --- [kmerfret-backend] [           main] c.k.backend.security.JwtAuthFilter       : Filter 'jwtAuthFilter' configured for use
+2026-05-29T23:41:01.689+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-29T23:41:01.969+02:00  WARN 2536 --- [kmerfret-backend] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-29T23:41:02.689+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-05-29T23:41:02.776+02:00  INFO 2536 --- [kmerfret-backend] [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-05-29T23:41:02.777+02:00  WARN 2536 --- [kmerfret-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-05-29T23:41:03.820+02:00  INFO 2536 --- [kmerfret-backend] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-05-29T23:41:03.850+02:00  INFO 2536 --- [kmerfret-backend] [           main] c.k.backend.KmerFretBackendApplication   : Started KmerFretBackendApplication in 13.446 seconds (process running for 14.102)
+2026-05-29T23:41:08.067+02:00  INFO 2536 --- [kmerfret-backend] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-29T23:41:08.068+02:00  INFO 2536 --- [kmerfret-backend] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-29T23:41:08.070+02:00  INFO 2536 --- [kmerfret-backend] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-05-29T23:43:06.228+02:00  WARN 2536 --- [kmerfret-backend] [nio-8081-exec-4] c.k.backend.service.PaymentService       : MTN MoMo API indisponible (sandbox) : 401 Access Denied on POST request for "https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay": [no body]
+2026-05-29T23:43:06.229+02:00  WARN 2536 --- [kmerfret-backend] [nio-8081-exec-4] c.k.backend.service.PaymentService       : MTN MoMo sandbox non disponible — mission ceb0a234-27ff-4e4e-9c28-ec386431eddb marquée en attente
+2026-05-29T23:52:48.477+02:00  WARN 2536 --- [kmerfret-backend] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@512fb3b2 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-29T23:52:54.292+02:00  WARN 2536 --- [kmerfret-backend] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3514167 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-29T23:52:54.522+02:00  WARN 2536 --- [kmerfret-backend] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@31c7218a (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-29T23:53:38.250+02:00  WARN 2536 --- [kmerfret-backend] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@c1e4cd0 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-29T23:53:55.746+02:00  WARN 2536 --- [kmerfret-backend] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@54578558 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-29T23:54:00.283+02:00  WARN 2536 --- [kmerfret-backend] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@22128aa7 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-29T23:54:02.100+02:00  WARN 2536 --- [kmerfret-backend] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4c43b7ae (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-29T23:54:04.929+02:00  WARN 2536 --- [kmerfret-backend] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2456863b (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-29T23:54:36.460+02:00  WARN 2536 --- [kmerfret-backend] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@599652f5 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-29T23:54:40.501+02:00  WARN 2536 --- [kmerfret-backend] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@58fbcb71 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-29T23:54:44.148+02:00  WARN 2536 --- [kmerfret-backend] [onnection-adder] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Pool is empty, failed to create/setup connection (89e5ed48-738c-4d5b-8c79-ba179ad8ecff)
+
+org.postgresql.util.PSQLException: Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:352) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.Driver.makeConnection(Driver.java:446) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.5.jar:42.7.5]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:139) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:368) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:205) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:483) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:747) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726) ~[HikariCP-6.3.0.jar:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:684) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:260) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.PGStream.<init>(PGStream.java:121) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:140) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:268) ~[postgresql-42.7.5.jar:42.7.5]
+	... 14 common frames omitted
+
+2026-05-29T23:55:49.448+02:00  WARN 2536 --- [kmerfret-backend] [onnection-adder] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Pool is empty, failed to create/setup connection (9b55946b-358c-4aa4-9fee-b041e9b32c30)
+
+org.postgresql.util.PSQLException: Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:352) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.Driver.makeConnection(Driver.java:446) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.5.jar:42.7.5]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:139) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:368) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:205) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:483) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:747) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726) ~[HikariCP-6.3.0.jar:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:684) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:260) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.PGStream.<init>(PGStream.java:121) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:140) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:268) ~[postgresql-42.7.5.jar:42.7.5]
+	... 14 common frames omitted
+

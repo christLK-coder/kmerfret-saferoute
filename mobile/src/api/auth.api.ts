@@ -1,6 +1,5 @@
-// Appels API d'authentification — login, register
 import { api } from './axios.config';
-import type { AuthResponse } from '../types';
+import type { AuthResponse, ApiResponse } from '../types';
 
 export interface RegisterPayload {
   fullName: string;
@@ -15,42 +14,27 @@ export interface LoginPayload {
   password: string;
 }
 
+function extractMessage(err: unknown): string {
+  const e = err as { response?: { data?: ApiResponse } };
+  return e?.response?.data?.message ?? 'Erreur de connexion au serveur';
+}
+
 export async function loginApi(payload: LoginPayload): Promise<AuthResponse> {
   try {
-    const { data } = await api.post<AuthResponse>('/api/auth/login', payload);
-    return data;
+    const { data } = await api.post<ApiResponse<AuthResponse>>('/api/auth/login', payload);
+    if (!data.data) throw new Error(data.message ?? 'Réponse invalide');
+    return data.data;
   } catch (err: unknown) {
-    const e = err as {
-      code?: string;
-      message?: string;
-      response?: { status: number; data: unknown; headers: unknown };
-    };
-    console.error('[auth.api] loginApi ERREUR RÉSEAU:', {
-      code: e.code,
-      message: e.message,
-      httpStatus: e.response?.status,
-      body: e.response?.data,
-    });
-    throw err;
+    throw new Error(extractMessage(err));
   }
 }
 
 export async function registerApi(payload: RegisterPayload): Promise<AuthResponse> {
   try {
-    const { data } = await api.post<AuthResponse>('/api/auth/register', payload);
-    return data;
+    const { data } = await api.post<ApiResponse<AuthResponse>>('/api/auth/register', payload);
+    if (!data.data) throw new Error(data.message ?? 'Réponse invalide');
+    return data.data;
   } catch (err: unknown) {
-    const e = err as {
-      code?: string;
-      message?: string;
-      response?: { status: number; data: unknown };
-    };
-    console.error('[auth.api] registerApi ERREUR RÉSEAU:', {
-      code: e.code,
-      message: e.message,
-      httpStatus: e.response?.status,
-      body: e.response?.data,
-    });
-    throw err;
+    throw new Error(extractMessage(err));
   }
 }

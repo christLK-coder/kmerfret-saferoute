@@ -3,7 +3,7 @@ spring:
     name: kmerfret-backend
 
   datasource:
-    url: jdbc:postgresql://localhost:5433/kmerfret
+    url: jdbc:postgresql://[::1]:5433/kmerfret
     username: kmerfret
     password: kmerfret2024
     driver-class-name: org.postgresql.Driver

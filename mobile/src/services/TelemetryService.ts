@@ -16,14 +16,25 @@ import { insertPosition } from '../database/positionsDb';
 import { enqueue } from '../database/syncDb';
 import type { LocalHazard, LocalPosition, HazardSeverity } from '../types';
 
+type HazardCallback = (severity: HazardSeverity, magnitude: number) => void;
+type PositionCallback = (speedKmh: number | null) => void;
+
 class TelemetryService {
   private missionId: string | null = null;
   private lastShockTime: number = 0;
   private currentPosition: LocationObject | null = null;
   private accelSubscription: ReturnType<typeof Accelerometer.addListener> | null = null;
   private locationSubscription: LocationSubscription | null = null;
+  private onHazardCallback: HazardCallback | null = null;
+  private onPositionCallback: PositionCallback | null = null;
 
-  async startTracking(missionId: string): Promise<void> {
+  async startTracking(
+    missionId: string,
+    callbacks?: {
+      onHazard?: HazardCallback;
+      onPosition?: PositionCallback;
+    }
+  ): Promise<void> {
     if (this.missionId) this.stopTracking();
 
     const { status } = await Location.requestForegroundPermissionsAsync();
@@ -32,8 +43,9 @@ class TelemetryService {
     }
 
     this.missionId = missionId;
+    this.onHazardCallback = callbacks?.onHazard ?? null;
+    this.onPositionCallback = callbacks?.onPosition ?? null;
 
-    // GPS en continu — toutes les GPS_INTERVAL_MS ou 10m de déplacement
     this.locationSubscription = await Location.watchPositionAsync(
       {
         accuracy: Location.Accuracy.High,
@@ -46,7 +58,6 @@ class TelemetryService {
       }
     );
 
-    // Accéléromètre à 10 Hz
     Accelerometer.setUpdateInterval(ACCEL_UPDATE_MS);
     this.accelSubscription = Accelerometer.addListener(({ x, y, z }) => {
       this.onAccelerometerData({ x, y, z });
@@ -61,6 +72,8 @@ class TelemetryService {
     this.missionId = null;
     this.currentPosition = null;
     this.lastShockTime = 0;
+    this.onHazardCallback = null;
+    this.onPositionCallback = null;
   }
 
   get isTracking(): boolean {
@@ -73,14 +86,15 @@ class TelemetryService {
 
     if (magnitude >= SHOCK_THRESHOLDS.LOW && now - this.lastShockTime > SHOCK_COOLDOWN_MS) {
       this.lastShockTime = now;
-      this.recordHazard(magnitude).catch(() => {});
+      const severity = this.getSeverity(magnitude);
+      this.onHazardCallback?.(severity, magnitude);
+      this.recordHazard(magnitude, severity).catch(() => {});
     }
   }
 
-  private async recordHazard(magnitude: number): Promise<void> {
+  private async recordHazard(magnitude: number, severity: HazardSeverity): Promise<void> {
     if (!this.missionId) return;
 
-    const severity = this.getSeverity(magnitude);
     const coords = this.currentPosition?.coords;
     const id = uuid.v4() as string;
     const recorded_at = dayjs().toISOString();
@@ -94,7 +108,6 @@ class TelemetryService {
       accuracy: coords?.accuracy ?? undefined,
       shock_magnitude: magnitude,
       shock_axis: 'Z',
-      // expo-location retourne la vitesse en m/s → conversion km/h
       speed_kmh: coords?.speed != null && coords.speed >= 0 ? coords.speed * 3.6 : undefined,
       severity,
       hazard_type: 'POTHOLE',
@@ -123,13 +136,15 @@ class TelemetryService {
 
     const { latitude, longitude, speed, heading, accuracy } = location.coords;
     const recorded_at = dayjs(location.timestamp).toISOString();
+    const speedKmh = speed != null && speed >= 0 ? speed * 3.6 : null;
+
+    this.onPositionCallback?.(speedKmh);
 
     const position: LocalPosition = {
       mission_id: this.missionId,
       latitude,
       longitude,
-      speed_kmh: speed != null && speed >= 0 ? speed * 3.6 : undefined,
-      // heading < 0 signifie non disponible sur certains appareils Android
+      speed_kmh: speedKmh ?? undefined,
       heading: heading != null && heading >= 0 ? heading : undefined,
       accuracy: accuracy ?? undefined,
       recorded_at,
