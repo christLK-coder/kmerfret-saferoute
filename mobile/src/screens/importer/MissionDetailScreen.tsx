@@ -521,6 +521,30 @@ export default function MissionDetailScreen() {
               </Text>
             </View>
           )}
+
+          {/* Bouton litige */}
+          {(mission.status === 'IN_TRANSIT' || mission.status === 'DELIVERED') && (
+            <TouchableOpacity
+              style={styles.disputeBtn}
+              onPress={() => navigation.navigate('Dispute', { missionId })}
+              activeOpacity={0.8}
+            >
+              <MaterialCommunityIcons name="shield-alert-outline" size={18} color="#B71C1C" />
+              <Text style={styles.disputeBtnText}>Signaler un problème</Text>
+            </TouchableOpacity>
+          )}
+
+          {/* Bouton notation */}
+          {mission.status === 'DELIVERED' && mission.driverName && (
+            <TouchableOpacity
+              style={styles.ratingBtn}
+              onPress={() => navigation.navigate('Rating', { missionId, reviewedName: mission.driverName! })}
+              activeOpacity={0.8}
+            >
+              <MaterialCommunityIcons name="star-outline" size={18} color="#F57F17" />
+              <Text style={styles.ratingBtnText}>Noter {mission.driverName}</Text>
+            </TouchableOpacity>
+          )}
         </ScrollView>
       </Animated.View>
 
@@ -648,6 +672,11 @@ const styles = StyleSheet.create({
     borderLeftWidth: 4, borderLeftColor: '#2E7D32',
   },
   releasedText: { fontSize: 13, color: '#2E7D32', flex: 1, lineHeight: 18, fontWeight: '600' },
+
+  disputeBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, borderWidth: 1.5, borderColor: '#B71C1C', borderRadius: 12, paddingVertical: 12, backgroundColor: '#FFF9F9' },
+  disputeBtnText: { fontSize: 14, fontWeight: '600', color: '#B71C1C' },
+  ratingBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, borderWidth: 1.5, borderColor: '#F57F17', borderRadius: 12, paddingVertical: 12, backgroundColor: '#FFFDF5' },
+  ratingBtnText: { fontSize: 14, fontWeight: '600', color: '#F57F17' },
 
   successCard: {
     alignItems: 'center', gap: 6, paddingVertical: 20,

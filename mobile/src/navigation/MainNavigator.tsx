@@ -19,6 +19,9 @@ import AlertScreen          from '../screens/AlertScreen';
 import MapScreen            from '../screens/shared/MapScreen';
 import RatingScreen         from '../screens/shared/RatingScreen';
 import StatsScreen          from '../screens/shared/StatsScreen';
+import TruckScreen          from '../screens/driver/TruckScreen';
+import DisputeScreen        from '../screens/shared/DisputeScreen';
+import LoyaltyScreen        from '../screens/driver/LoyaltyScreen';
 
 // ─── Param lists ──────────────────────────────────────────────────────────────
 
@@ -46,6 +49,9 @@ export type MainStackParamList = {
   Map: undefined;
   Rating: { missionId: string; reviewedName: string };
   Stats: undefined;
+  Trucks: undefined;
+  Dispute: { missionId: string };
+  Loyalty: undefined;
 };
 
 // ─── Navigateurs ─────────────────────────────────────────────────────────────
@@ -150,6 +156,9 @@ export function MainNavigator() {
       <Stack.Screen name="Map"            component={MapScreen}            options={{ animation: 'slide_from_right' }} />
       <Stack.Screen name="Rating"         component={RatingScreen}         options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
       <Stack.Screen name="Stats"          component={StatsScreen}          options={{ animation: 'slide_from_right' }} />
+      <Stack.Screen name="Trucks"         component={TruckScreen}          options={{ animation: 'slide_from_right' }} />
+      <Stack.Screen name="Dispute"        component={DisputeScreen}        options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
+      <Stack.Screen name="Loyalty"        component={LoyaltyScreen}        options={{ animation: 'slide_from_right' }} />
     </Stack.Navigator>
   );
 }

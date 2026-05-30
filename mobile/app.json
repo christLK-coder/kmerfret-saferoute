@@ -69,7 +69,8 @@
       ],
       "expo-sensors",
       "expo-sqlite",
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-localization"
     ]
   }
 }

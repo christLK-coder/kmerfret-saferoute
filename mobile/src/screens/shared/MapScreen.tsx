@@ -11,6 +11,14 @@ import * as Location from 'expo-location';
 import { api } from '../../api/axios.config';
 import type { ApiResponse } from '../../types';
 
+interface WeatherInfo {
+  temp: number;
+  description: string;
+  icon: string;
+  city: string;
+  rain: boolean;
+}
+
 interface HazardPoint {
   id: string;
   latitude: number;
@@ -70,11 +78,12 @@ export default function MapScreen() {
   const webRef = useRef<WebView>(null);
 
   const [hazards, setHazards] = useState<HazardPoint[]>([]);
-  const [userLat, setUserLat] = useState(3.848); // Yaoundé par défaut
+  const [userLat, setUserLat] = useState(3.848);
   const [userLng, setUserLng] = useState(11.502);
   const [loading, setLoading] = useState(true);
   const [htmlContent, setHtmlContent] = useState('');
   const [counts, setCounts] = useState({ total: 0, critical: 0, high: 0 });
+  const [weather, setWeather] = useState<WeatherInfo | null>(null);
 
   useEffect(() => {
     async function load() {
@@ -96,6 +105,27 @@ export default function MapScreen() {
           high: pts.filter(h => h.severity === 'HIGH').length,
         });
       } catch { /* mode offline */ }
+
+      // Météo OpenWeatherMap (clé gratuite - 1000 appels/jour)
+      try {
+        const lat = userLat || 3.848;
+        const lng = userLng || 11.502;
+        const res = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=b6907d289e10d714a6e88b30761fae22&units=metric&lang=fr`
+        );
+        if (res.ok) {
+          const wd = await res.json();
+          const rain = (wd.weather?.[0]?.main ?? '').toLowerCase().includes('rain');
+          setWeather({
+            temp: Math.round(wd.main?.temp ?? 0),
+            description: wd.weather?.[0]?.description ?? '',
+            icon: wd.weather?.[0]?.main ?? '',
+            city: wd.name ?? '',
+            rain,
+          });
+        }
+      } catch { /* météo non disponible */ }
+
       setLoading(false);
     }
     load();
@@ -148,6 +178,25 @@ export default function MapScreen() {
         ))}
       </View>
 
+      {/* ─── Bannière météo ─── */}
+      {weather && (
+        <View style={[styles.weatherBar, weather.rain && styles.weatherBarRain]}>
+          <MaterialCommunityIcons
+            name={weather.rain ? 'weather-rainy' : weather.icon === 'Clouds' ? 'weather-cloudy' : 'weather-sunny'}
+            size={20}
+            color={weather.rain ? '#0277BD' : '#F57F17'}
+          />
+          <Text style={styles.weatherText}>
+            {weather.city} — {weather.temp}°C, {weather.description}
+          </Text>
+          {weather.rain && (
+            <View style={styles.rainAlert}>
+              <Text style={styles.rainAlertText}>⚠ Pluie — Routes glissantes</Text>
+            </View>
+          )}
+        </View>
+      )}
+
       {loading ? (
         <View style={styles.centered}>
           <ActivityIndicator size="large" color="#1B5E20" />
@@ -195,6 +244,12 @@ const styles = StyleSheet.create({
   legendItem: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   legendDot: { width: 10, height: 10, borderRadius: 5 },
   legendLabel: { fontSize: 10, color: '#757575', fontWeight: '600' },
+
+  weatherBar: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: '#FFFFFF', paddingHorizontal: 16, paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: '#F0F0F0' },
+  weatherBarRain: { backgroundColor: '#E3F2FD' },
+  weatherText: { fontSize: 12, color: '#424242', fontWeight: '600', flex: 1 },
+  rainAlert: { backgroundColor: '#F44336', borderRadius: 8, paddingHorizontal: 8, paddingVertical: 2 },
+  rainAlertText: { fontSize: 10, color: '#FFFFFF', fontWeight: '700' },
 
   map: { flex: 1 },
   centered: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12 },
